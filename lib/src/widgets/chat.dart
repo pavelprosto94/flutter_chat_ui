@@ -25,7 +25,7 @@ class Chat extends StatefulWidget {
   const Chat({
     Key? key,
     this.bubbleBuilder,
-    this.customWidget,
+    this.customButtonWidget,
     this.customBottomWidget,
     this.customDateHeaderText,
     this.customMessageBuilder,
@@ -71,7 +71,9 @@ class Chat extends StatefulWidget {
   /// a channel view.
   final Widget? customBottomWidget;
   
-  final Widget? customWidget;
+  /// If you need to add your own buttons (for example, record audio),
+  /// you can insert them here 
+  final Widget? customButtonWidget;
 
   /// If [dateFormat], [dateLocale] and/or [timeFormat] is not enough to
   /// customize date headers in your case, use this to return an arbitrary
@@ -434,6 +436,7 @@ class _ChatState extends State<Chat> {
                           onTextFieldTap: widget.onTextFieldTap,
                           sendButtonVisibilityMode:
                               widget.sendButtonVisibilityMode,
+                          customButtonWidget: widget.customButtonWidget,
                         ),
                   ],
                 ),
