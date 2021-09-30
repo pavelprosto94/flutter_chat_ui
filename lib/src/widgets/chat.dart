@@ -25,6 +25,7 @@ class Chat extends StatefulWidget {
   const Chat({
     Key? key,
     this.bubbleBuilder,
+    this.customWidget,
     this.customBottomWidget,
     this.customDateHeaderText,
     this.customMessageBuilder,
@@ -69,6 +70,8 @@ class Chat extends StatefulWidget {
   /// Allows you to replace the default Input widget e.g. if you want to create
   /// a channel view.
   final Widget? customBottomWidget;
+  
+  final Widget? customWidget;
 
   /// If [dateFormat], [dateLocale] and/or [timeFormat] is not enough to
   /// customize date headers in your case, use this to return an arbitrary
