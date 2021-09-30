@@ -26,6 +26,7 @@ class Input extends StatefulWidget {
     required this.onSendPressed,
     this.onTextChanged,
     this.onTextFieldTap,
+    this.customButtonWidget,
     required this.sendButtonVisibilityMode,
   }) : super(key: key);
 
@@ -53,6 +54,10 @@ class Input extends StatefulWidget {
   /// Defaults to [SendButtonVisibilityMode.editing].
   final SendButtonVisibilityMode sendButtonVisibilityMode;
 
+  /// If you need to add your own buttons (for example, record audio),
+  /// you can insert them here 
+  final Widget? customButtonWidget;
+  
   @override
   _InputState createState() => _InputState();
 }
@@ -206,6 +211,7 @@ class _InputState extends State<Input> {
                           textCapitalization: TextCapitalization.sentences,
                         ),
                       ),
+                      widget.customButtonWidget ?? Container(),
                       Visibility(
                         visible: _sendButtonVisible,
                         child: SendButton(
